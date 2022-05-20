@@ -19,7 +19,7 @@ Just send a request to `https://yourproxydomain.com/proxy` and the following sup
   Example: `redirectWithProxy=true`
 - `appendReqHeaders` - If set, these headers will be appended to the request headers.\
   _Note_: It will override the header if it exists.\
-  Example: `appendReqHeaders=[["referer": "https://google.com"], ["origin"]: "https://google.com"]`
+  Example: `appendReqHeaders=[["referer": "https://google.com"], ["origin": "https://google.com"]]`
 - `appendResHeaders` - If set, these headers will be appended to the response headers.\
   Example: `appendResHeaders=[["content-type": "text/plain"]]`
 - `deleteReqHeaders` - If set, these headers will be removed from the request headers.\
