@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1"
+  },
+  "name": "requests-proxy",
+  "version": "1.0.0",
+  "description": "requests-proxy is a NodeJS proxy server that adds request/response headers to the proxied request.",
+  "main": "server.js",
+  "repository": "https://github.com/hoangvu12/requests-proxy",
+  "author": "hoangvu12 <68330291+hoangvu12@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
