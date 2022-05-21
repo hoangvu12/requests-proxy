@@ -119,7 +119,7 @@ app.get("/proxy", async (req, res) => {
   let headers = concatHeaders({ host, ...appendReqHeaders });
 
   if (!ignoreReqHeaders) {
-    headers = { host, ...headers };
+    headers = concatHeaders(req.headers, headers);
   }
 
   const filteredHeaders = Object.keys(headers).reduce((acc, key) => {
