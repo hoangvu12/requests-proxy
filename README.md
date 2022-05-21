@@ -15,8 +15,9 @@ Just send a request to `https://yourproxydomain.com/proxy` and the following sup
 - `followRedirect` - Follow redirect if true, otherwise send raw redirect response.\
   Example: `followRedirect=true`
 - `redirectWithProxy` - If set, the server will add proxy to the redirect location.\
-  _Note_: `followRedirect` must be false.\
   Example: `redirectWithProxy=true`
+- `decompress` - If set, no decompress would be done. return back the non-compressed response.\
+  Example: `decompress=true`
 - `appendReqHeaders` - If set, these headers will be appended to the request headers.\
   _Note_: It will override the header if it exists.\
   Example: `appendReqHeaders=[["referer": "https://google.com"], ["origin": "https://google.com"]]`

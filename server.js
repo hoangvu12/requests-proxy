@@ -42,6 +42,10 @@ const composeHeaders = (arrayOfHeaders) => {
 const composeQuery = (originalQuery) => {
   let query = originalQuery;
 
+  if (originalQuery?.decompress) {
+    query.ignoreReqHeaders = originalQuery?.decompress === "true";
+  }
+
   if (originalQuery?.ignoreReqHeaders) {
     query.ignoreReqHeaders = originalQuery?.ignoreReqHeaders === "true";
   }
@@ -106,6 +110,7 @@ app.get("/proxy", async (req, res) => {
     ignoreReqHeaders = false,
     followRedirect = false,
     redirectWithProxy = false,
+    decompress = false,
     appendReqHeaders = {},
     appendResHeaders = {},
     deleteReqHeaders = [],
@@ -134,6 +139,7 @@ app.get("/proxy", async (req, res) => {
     headers: filteredHeaders,
     validateStatus: () => true,
     maxRedirects: followRedirect ? 0 : 5,
+    decompress,
   });
 
   const corsHeaders = {
