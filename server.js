@@ -157,10 +157,11 @@ app.get("/proxy", async (req, res) => {
     if (deleteResHeaders.includes(header.toLowerCase())) continue;
 
     if (header.toLowerCase() === "location") {
-      const encodedUrl = encodeURIComponent(resHeaders[header]);
+      const originalUrl = resHeaders[header];
+      const encodedUrl = encodeURIComponent(originalUrl);
       const redirectUrl = redirectWithProxy
         ? `/proxy?url=${encodedUrl}&${serialize(query)}`
-        : encodedUrl;
+        : originalUrl;
 
       res.redirect(response.status, redirectUrl);
 
