@@ -117,6 +117,13 @@ app.get("/proxy", async (req, res) => {
     deleteResHeaders = [],
   } = query;
 
+  console.log(query);
+
+  if (!url) {
+    res.status(400).send("Missing url");
+    return;
+  }
+
   const decodedUrl = decodeURIComponent(url);
 
   const host = new URL(decodedUrl).host;
@@ -138,7 +145,7 @@ app.get("/proxy", async (req, res) => {
     responseType: "stream",
     headers: filteredHeaders,
     validateStatus: () => true,
-    maxRedirects: followRedirect ? 0 : 5,
+    maxRedirects: !followRedirect ? 0 : 5,
     decompress,
   });
 
