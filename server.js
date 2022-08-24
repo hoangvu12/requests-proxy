@@ -117,8 +117,6 @@ app.get("/proxy", async (req, res) => {
     deleteResHeaders = [],
   } = query;
 
-  console.log(query);
-
   if (!url) {
     res.status(400).send("Missing url");
     return;
